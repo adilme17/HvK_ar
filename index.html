@@ -46,29 +46,28 @@
           src="assets/asset.mp4"
           preload="auto"
           response-type="arraybuffer"
-          
           crossorigin
           webkit-playsinline
           autoplay
-          
           playsinline
         ></video>
       </a-assets>
 
       <a-marker
-        type="pattern"
-        preset="custom"
-        url="assets/marker.jpg"
-        videohandler
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance="0.01"
-        smoothThreshold="5"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-      >
+    type="pattern"
+    preset="custom"
+    url="assets/image.jpg" 
+    videohandler
+    smooth="true"
+    smoothCount="10"
+    smoothTolerance="0.01"
+    smoothThreshold="5"
+    raycaster="objects: .clickable"
+    emitevents="true"
+    cursor="fuse: false; rayOrigin: mouse;"
+    id="markerA"
+>
+
         <a-video
           src="#vid"
           scale="1 2 1"
