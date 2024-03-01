@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR.js Video Rasim orqali</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-    <link rel="stylesheet" href="./style.css" />
   </head>
-
   <body>
     <a-scene
       vr-mode-ui="enabled: false;"
       loading-screen="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-      id="scene"
       embedded
-      gesture-detector
     >
       <a-assets>
-        <a-asset-item id="animated-asset" src="assets/asset.glb">
-        </a-asset-item>
+        <video
+          id="video"
+          src="../assets/asset.mp4"
+          loop
+          crossorigin="anonymous"
+        ></video>
+        <a-asset-item
+          id="animated-asset"
+          src="assets/asset.glb"
+        ></a-asset-item>
       </a-assets>
 
-      <!-- <a-marker
-                id="animated-marker"
-                type="pattern"
-                preset="custom"
-                url="assets/marker.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            > -->
-      <a-marker
-        id="animated-marker"
-        type="image"
-        preset="custom"
-        
-        src="./assets/marker.jpg"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false;
-        rayOrigin: mouse;"
-        id="markerA"
-      >
+      <a-marker type="pattern" preset="custom" url="path/to/your/marker.patt">
         <a-entity
-          id="bowser-model"
-          scale="0.7187543911303438 0.7187543911303438 0.7187543911303438"
-          animation-mixer="loop: repeat"
+          scale="0.1 0.1 0.1"
           gltf-model="#animated-asset"
-          class="clickable"
-          gesture-handler
+          animation-mixer="loop: repeat"
+        ></a-entity>
+        <a-entity
+          position="0 0.5 0"
+          geometry="primitive: plane; width: 4; height: 2"
+          material="src: #video"
         ></a-entity>
       </a-marker>
 
